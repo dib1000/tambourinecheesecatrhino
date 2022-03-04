@@ -20,8 +20,8 @@ let draw = function (e) {
     let mouseX = e.offsetX;
     let mouseY = e.offsetY;
 
-    ctx.fillStyle = "black";
-    ctx.fillRect(mouseX, mouseY, 1, 1);
+    ctx.fillStyle = "green";
+    ctx.fillRect(mouseX - 1, mouseY - 1, 2, 2);
     ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
 
     if (currentPolygon.length === 0) {
