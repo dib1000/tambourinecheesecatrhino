@@ -12,3 +12,6 @@ Added devlog
 
 christopherL -- 2022-03-03 08
 Added polygon generation tool
+
+emmaB -- 2022-03-06 23:21
+Added design doc and requirements.txt
