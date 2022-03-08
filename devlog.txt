@@ -29,3 +29,7 @@ Set up directories
 emmaB -- 2022-03-08 08:18
 Added project description and roles on README
 Added requirements
+
+christopherL -- 2022-03-08 08:23
+Set up basic flask app with polygon generation tool
+Set up .gitignore

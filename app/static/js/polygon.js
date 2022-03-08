@@ -8,7 +8,7 @@ ctx.strokeStyle = "black";
 
 // set map as the background
 let background = new Image();
-background.src = "1.png";
+background.src = "static/img/1.png";
 background.onload = function () {
     ctx.drawImage(background, 0, (c.clientHeight - background.height) / 2);
 }
