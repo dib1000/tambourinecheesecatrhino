@@ -15,3 +15,10 @@ Added polygon generation tool
 
 emmaB -- 2022-03-06 23:21
 Added design doc and requirements.txt
+
+emmaB -- 2022-03-08 00:18
+Edited design doc
+Clairifed how we were using Google Spreadsheets and databases
+Added a potential search function we may implement if we have the time
+Went more in depth with how javascript and sqlite interact with each other
+Clarified what we meant when we could make the maps look more appealing
