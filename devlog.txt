@@ -25,3 +25,7 @@ Clarified what we meant when we could make the maps look more appealing
 
 christopherL -- 2022-03-08 08:11
 Set up directories
+
+emmaB -- 2022-03-08 08:18
+Added project description and roles on README
+Added requirements
