@@ -33,3 +33,6 @@ Added requirements
 christopherL -- 2022-03-08 08:23
 Set up basic flask app with polygon generation tool
 Set up .gitignore
+
+emmaB -- 2022-03-08 11:04
+Added navbar and bootstrap onto files we will eventually use for the project
