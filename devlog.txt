@@ -10,5 +10,8 @@ Added README and teamflag
 emmaB -- 2022-03-03 08:29
 Added devlog
 
-christopherL -- 2022-03-03 08
+christopherL -- 2022-03-03 08:30
 Added polygon generation tool
+
+christopherL -- 2022-03-08 08:11
+Set up directories
