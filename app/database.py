@@ -41,5 +41,14 @@ def set_room_info(room_number, info):
     command = "UPDATE rooms SET room_info = ? WHERE room_number = ?"
     c.execute(command, (info, room_number))
 
-    db.close()
     db.commit()
+    db.close()
+    
+def add_to_room_info(room_number, new_info):
+	current_info = get_room(room_number)[4]
+	if len(current_info) > 0:
+		revised_info = current_info[:-1]
+		revised_info += f", {new_info[1:]}"
+		set_room_info(room_number, revised_info)
+	else:
+		set_room_info(room_number, new_info)
