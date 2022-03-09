@@ -36,3 +36,6 @@ Set up .gitignore
 
 emmaB -- 2022-03-08 11:04
 Added navbar and bootstrap onto files we will eventually use for the project
+
+tamiT -- 2022-03-08
+Added database setup, insertion, and selection functions
