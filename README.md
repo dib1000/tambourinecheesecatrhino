@@ -1,5 +1,8 @@
 # Moran's Maps by tambourinecheesecatrhino
-Software Development Project P02
+tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
+SoftDev
+P02 -- Moran's Maps
+2022-03-22
 
 ## Roster
 Emma Buller - PM, HTML, CSS
