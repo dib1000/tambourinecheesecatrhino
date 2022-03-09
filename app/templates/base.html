@@ -29,7 +29,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{{url_for('index')}}">Maps</a>
+          <a class="nav-link" href="{{url_for('index')}}">Maps</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="{{url_for('about')}}">About</a>
@@ -39,16 +39,14 @@
     </div>
   </nav>
   <br>
-
-  <h1>Click to place vertexes, press left shift to draw polygon</h1>
-
-  <div>
-    <canvas height="800" width="1200" id="slate">
-      dis dat alt txt tho
-    </canvas>
-  </div>
-
+  <h1>{{page_desc}}</h1>
+<div>
+  {% if map %}
+  <canvas height="800" width="1200" id="slate">
+    dis dat alt txt tho
+  </canvas> <br>
   <button id="buttonClear">wipe</button>
-
+  {% endif %}
+  </div>
   <script src="{{ url_for('static', filename='js/polygon.js') }}"></script>
 </html>

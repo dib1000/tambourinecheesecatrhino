@@ -43,3 +43,6 @@ Added database setup, insertion, and selection functions
 emmaB -- 2022-03-09 08:18
 Added routing from map page to about page.
 Added bootstrap nav bar to the Flask App
+
+emmaB -- 2022-03-09 08:38
+Added jinja templating for map and about pages
