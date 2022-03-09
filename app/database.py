@@ -22,6 +22,17 @@ def add_room(floor, room_number, room_name, coordinates, room_info=""):
            
     db.commit()
     db.close()
+    
+def get_all_rooms_on_floor(floor):
+    db = get_db()
+    c = db.cursor()
+
+    command = "SELECT * FROM rooms WHERE floor = ?"
+    rooms = c.execute(command, (floor,)).fetchall()
+    
+    db.close()
+    
+    return rooms
 
 def get_room(room_number):
     db = get_db()
@@ -52,3 +63,13 @@ def add_to_room_info(room_number, new_info):
 		set_room_info(room_number, revised_info)
 	else:
 		set_room_info(room_number, new_info)
+
+def delete_room(room_number):
+	db = get_db()
+	c = db.cursor()
+
+	command = "DELETE FROM rooms WHERE room_number = ?"
+	c.execute(command, (room_number,))
+
+	db.commit()
+	db.close()
