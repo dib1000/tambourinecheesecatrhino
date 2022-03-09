@@ -12,6 +12,7 @@ Handles Flask routing for the app.
 from os import urandom
 
 from flask import Flask, render_template, redirect, session, url_for, request
+import database
 
 app = Flask(__name__)
 app.secret_key = urandom(32)
@@ -23,5 +24,6 @@ def index():
 
 
 if __name__ == "__main__":
+    database.db_setup()
     app.debug = True
     app.run()
