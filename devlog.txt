@@ -39,3 +39,7 @@ Added navbar and bootstrap onto files we will eventually use for the project
 
 tamiT -- 2022-03-08
 Added database setup, insertion, and selection functions
+
+emmaB -- 2022-03-09 08:18
+Added routing from map page to about page.
+Added bootstrap nav bar to the Flask App
