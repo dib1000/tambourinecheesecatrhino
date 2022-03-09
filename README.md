@@ -1,7 +1,7 @@
 # Moran's Maps by tambourinecheesecatrhino
-tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
-SoftDev
-P02 -- Moran's Maps
+tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy) <br>
+SoftDev <br>
+P02 -- Moran's Maps <br>
 2022-03-22
 
 ## Roster
