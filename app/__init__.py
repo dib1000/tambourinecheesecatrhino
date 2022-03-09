@@ -21,7 +21,10 @@ app.secret_key = urandom(32)
 @app.route("/")
 def index():
     return render_template("polygon.html")
-
+    
+@app.route("/about")
+def about():
+    return render_template("about.html")
 
 if __name__ == "__main__":
     database.db_setup()
