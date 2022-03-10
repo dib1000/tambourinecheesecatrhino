@@ -17,14 +17,26 @@ import database
 app = Flask(__name__)
 app.secret_key = urandom(32)
 
+@app.route("/editor", methods=["GET", "POST"])
+def editor():
+    # GET request: display the floor editor
+    if request.method == "GET":
+        floor = request.args.get("floor")
+        rooms = [] # this will be the existing rooms
+        image_src = "" # the source of the background image
 
-@app.route("/")
-def index():
-    return render_template("polygon.html")
+        return render_template("editor.html", rooms=rooms, image_src=image_src)
+
+    # POST request: handle editing a room or creating a new room
+    else:
+        print(request.form)
+        return ""
+
     
 @app.route("/about")
 def about():
     return render_template("about.html")
+
 
 if __name__ == "__main__":
     database.db_setup()

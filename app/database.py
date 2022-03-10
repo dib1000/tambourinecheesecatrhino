@@ -1,7 +1,9 @@
 import sqlite3
 
+
 def get_db():
     return sqlite3.connect("database.db")
+
 
 def db_setup():
     db = get_db()
@@ -13,26 +15,29 @@ def db_setup():
     db.commit()
     db.close()
 
+
 def add_room(floor, room_number, room_name, coordinates, room_info=""):
     db = get_db()
     c = db.cursor()
 
     command = "INSERT INTO rooms (floor, room_number, room_name, coordinates, room_info) VALUES (?, ?, ?, ?, ?)"
     c.execute(command, (floor, room_number, room_name, coordinates, room_info))
-           
+
     db.commit()
     db.close()
-    
+
+
 def get_all_rooms_on_floor(floor):
     db = get_db()
     c = db.cursor()
 
     command = "SELECT * FROM rooms WHERE floor = ?"
     rooms = c.execute(command, (floor,)).fetchall()
-    
+
     db.close()
-    
+
     return rooms
+
 
 def get_room(room_number):
     db = get_db()
@@ -45,6 +50,7 @@ def get_room(room_number):
 
     return room
 
+
 def set_room_info(room_number, info):
     db = get_db()
     c = db.cursor()
@@ -54,22 +60,24 @@ def set_room_info(room_number, info):
 
     db.commit()
     db.close()
-    
+
+
 def add_to_room_info(room_number, new_info):
-	current_info = get_room(room_number)[4]
-	if len(current_info) > 0:
-		revised_info = current_info[:-1]
-		revised_info += f", {new_info[1:]}"
-		set_room_info(room_number, revised_info)
-	else:
-		set_room_info(room_number, new_info)
+    current_info = get_room(room_number)[4]
+    if len(current_info) > 0:
+        revised_info = current_info[:-1]
+        revised_info += f", {new_info[1:]}"
+        set_room_info(room_number, revised_info)
+    else:
+        set_room_info(room_number, new_info)
+
 
 def delete_room(room_number):
-	db = get_db()
-	c = db.cursor()
+    db = get_db()
+    c = db.cursor()
 
-	command = "DELETE FROM rooms WHERE room_number = ?"
-	c.execute(command, (room_number,))
+    command = "DELETE FROM rooms WHERE room_number = ?"
+    c.execute(command, (room_number,))
 
-	db.commit()
-	db.close()
+    db.commit()
+    db.close()

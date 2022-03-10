@@ -1,0 +1,50 @@
+<!--
+  tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
+  SoftDev pd0
+  P02 -- Interactive Map of Stuy
+  2022-03-22
+
+  Floor Editor
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Floor Editor</title>
+
+    <style>
+      #canvas {
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+
+  <h1>Floor Editor</h1>
+  <div>
+    <canvas height="800" width="1200" id="canvas"></canvas>
+  </div>
+  <button id="buttonNew">New</button>
+
+  <div id="roomCard" style="display: none;">
+    <form action="{{ url_for('editor') }}", method="POST">
+      <input type="hidden" id="roomId", name="roomId">
+      <label for="roomName">Room Name</label>
+      <input type="text" id="roomName" name="roomName"><br>
+      <label for="roomNumber">Room Number</label>
+      <input type="text" id="roomNumber" name="roomNumber"><br>
+      <label for="roomCoords">Room Coordinates</label>
+      <input type="text" id="roomCoords" name="roomCoords"><br>
+      <input type="submit" id="buttonSave" value="Save">
+    </form>
+    <button id="buttonCancel">Cancel</button>
+  </div>
+
+  <script>
+    let imageSrc = "{{ image_src }}";
+    imageSrc = "static/img/1.png";
+    let roomData = "{{ rooms }}";
+  </script>
+  <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+  
+</html>

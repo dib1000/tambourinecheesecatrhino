@@ -1,7 +1,7 @@
 tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
 SoftDev
-P02 --
-2022-03-03
+P02 -- Interactive Map of Stuy
+2022-03-22
 
 emmaB -- 2022-03-03
 Created repo
@@ -49,3 +49,7 @@ Added jinja templating for map and about pages
 
 tamiT -- 2022-03-09 08:39
 Added more database functions (delete, add info, get all on a floor)
+
+christopherL -- 2022-03-09 19:40
+Expanded floor editor
+Included database in git repo
