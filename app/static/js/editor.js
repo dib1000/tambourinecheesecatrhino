@@ -1,7 +1,7 @@
 // tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
 // SoftDev pd0
 // P02 -- Interactive Map of Stuy
-// 2022-03-22
+// 2022-03-23
 
 // Floor Editor JS
 
@@ -30,6 +30,7 @@ bg.src = imageSrc;
 bg.onload = () => {
   ctx.drawImage(bg, 0, (c.clientHeight - bg.height) / 2);
 }
+// draw existing rooms here
 
 // clear the current room form
 let clearRoomCard = () => {
@@ -40,6 +41,15 @@ let clearRoomCard = () => {
   currentRoom = [];
 }
 
+// return to original map state
+let clearMap = () => {
+  clearRoomCard();
+  ctx.clearRect(0, 0, c.clientWidth, c.clientHeight);
+  ctx.drawImage(bg, 0, (c.clientHeight - bg.height) / 2);
+  // draw existing rooms now
+}
+
+
 // set mode to select by default
 let mode = "select";
 c.style.cursor = "grab";
@@ -48,7 +58,7 @@ clearRoomCard();
 // new room handler
 let createNewRoom = () => {
   roomCard.style.display = "block";
-  clearRoomCard();
+  clearMap();
   mode = "draw";
   c.style.cursor = "crosshair";
 };
@@ -56,7 +66,7 @@ let createNewRoom = () => {
 // cancel current room
 let cancelCurrentRoom = () => {
   roomCard.style.display = "none";
-  clearRoomCard();
+  clearMap();
   mode = "select";
   c.style.cursor = "grab";
 }
@@ -94,6 +104,9 @@ let completeRoom = (e) => {
 let checkSelection = (e) => {
   let mouseX = e.offsetX;
   let mouseY = e.offsetY;
+
+  // placeholder roomData
+  roomData = "[]"
 
   // would return the id of the room selected
   return null;
