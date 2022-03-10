@@ -22,8 +22,8 @@ def editor():
     # GET request: display the floor editor
     if request.method == "GET":
         floor = request.args.get("floor")
-        rooms = [] # this will be the existing rooms
-        image_src = "" # the source of the background image
+        rooms = database.get_all_rooms_on_floor(floor)
+        image_src = url_for("static", filename=f"img/{floor}.png") # the source of the background image
 
         return render_template("editor.html", rooms=rooms, image_src=image_src)
 
