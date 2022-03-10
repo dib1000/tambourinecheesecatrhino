@@ -45,7 +45,7 @@ Added routing from map page to about page.
 Added bootstrap nav bar to the Flask App
 
 emmaB -- 2022-03-09 08:38
-Added jinja templating for map and about pages
+Added jinja templating for map and about pages/
 
 tamiT -- 2022-03-09 08:39
 Added more database functions (delete, add info, get all on a floor)
@@ -53,6 +53,9 @@ Added more database functions (delete, add info, get all on a floor)
 christopherL -- 2022-03-09 19:40
 Expanded floor editor
 Included database in git repo
+
+christopherL -- 2022-03-10 08:12
+Formatted coordinate string
 
 emmaB -- 2022-03-10 08:24
 Added launch codes
