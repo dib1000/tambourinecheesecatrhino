@@ -22,26 +22,24 @@ If no install Python [here](https://www.python.org/downloads/)
 
 1. Clone repository
 
-
- '$ git clone https://github.com/dib1000/tambourinecheesecatrhino.git'
-
- '$ cd tambourinecheesecatrhino'
-
+ ```
+ $ git clone https://github.com/dib1000/tambourinecheesecatrhino.git
+ $ cd tambourinecheesecatrhino
+```
 
 2. Create a new virtual environment
-
- '$ python3 -m venv env_name'
-
- '$ source env_name/bin/activate'
-
+```
+ $ python3 -m venv env_name
+ $ source env_name/bin/activate
+```
 
 3. Install project dependencies
-
- '(env) $ pip3 install -r requirements.txt'
-
+```
+ (env) $ pip3 install -r requirements.txt
+```
 
 4. Run the app
-
- '(env) $ python app/__init__.py'
-
+```
+ (env) $ python app/__init__.py
+```
 Access the app by going to http://127.0.0.1:5000/
