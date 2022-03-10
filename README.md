@@ -42,7 +42,6 @@ If no install Python [here](https://www.python.org/downloads/)
 
 4. Run the app
 
-
  '(env) $ python app/__init__.py'
 
 Access the app by going to http://127.0.0.1:5000/
