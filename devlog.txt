@@ -53,3 +53,6 @@ Added more database functions (delete, add info, get all on a floor)
 christopherL -- 2022-03-09 19:40
 Expanded floor editor
 Included database in git repo
+
+christopherL -- 2022-03-10 08:12
+Formatted coordinate string

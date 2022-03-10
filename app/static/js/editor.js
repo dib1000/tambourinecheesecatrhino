@@ -77,11 +77,11 @@ let drawVertex = (e) => {
     ctx.lineTo(mouseX, mouseY);
   }
 
-  currentRoom.push([mouseX, mouseY]);
+  currentRoom.push(`(${mouseX}, ${mouseY})`);
 };
 
 let completeRoom = (e) => {
-  if (e.code === "ShiftLeft") {
+  if (e.code === "ShiftLeft" && currentRoom.length > 0) {
     ctx.closePath();
     ctx.fill();
     ctx.stroke();
