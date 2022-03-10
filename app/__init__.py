@@ -17,6 +17,10 @@ import database
 app = Flask(__name__)
 app.secret_key = urandom(32)
 
+@app.route("/")
+def index():
+    return render_template("base.html", page_desc="Welcome to Moran's Maps", map=True)
+
 @app.route("/editor", methods=["GET", "POST"])
 def editor():
     # GET request: display the floor editor
@@ -32,7 +36,7 @@ def editor():
         print(request.form)
         return ""
 
-    
+
 @app.route("/about")
 def about():
     return render_template("about.html")
