@@ -29,7 +29,13 @@ def editor():
 
     # POST request: handle editing a room or creating a new room
     else:
-        print(request.form)
+    	if len(request.form.get('roomId')) == 0:
+	    	database.add_room(
+	    		int(request.form.get('roomNumber')[0]),
+	    		request.form.get('roomNumber'),
+	    		request.form.get('roomName'),
+	    		request.form.get('roomCoords')
+	    	)
         return ""
 
     
