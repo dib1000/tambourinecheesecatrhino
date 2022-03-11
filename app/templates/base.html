@@ -35,6 +35,9 @@
           <a class="nav-link" href="{{url_for('about')}}">About</a>
         </li>
       </ul>
+      <span class="navbar-text">
+        <a class="nav-link" href="{{url_for('editor')}}">Edit</a>
+      </span>
       </div>
     </div>
   </nav>
@@ -46,6 +49,17 @@
     dis dat alt txt tho
   </canvas> <br>
   <button id="buttonClear">wipe</button>
+  {%elif login%}
+  <form>
+    <div class="input-group mb-3">
+  <span class="input-group-text" id="user">Username</span>
+  <input type="text" class="form-control" placeholder="Username" id="username">
+  </div>
+  <div class="input-group mb-3">
+  <span class="input-group-text" id="pass">Password</span>
+  <input type="text" class="form-control" placeholder="Password" id="password">
+  </div>
+  </form>
   {% endif %}
   </div>
   </html>
