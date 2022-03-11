@@ -89,6 +89,7 @@ def add_to_room_info(room_id, new_info):
     else:
         set_room_info(room_id, new_info)
 
+
 def update_room(room_id, floor, room_number, room_name, coordinates, room_info=""):
     db = get_db()
     c = db.cursor()
