@@ -10,7 +10,7 @@ def db_setup():
     db = get_db()
     c = db.cursor()
 
-    command = "CREATE TABLE IF NOT EXISTS rooms (room_id INTEGER PRIMARY KEY, floor INTEGER KEY, room_number TEXT NOT NULL, room_name TEXT NOT NULL, coordinates TEXT NOT NULL, room_info TEXT);"
+    command = "CREATE TABLE IF NOT EXISTS rooms (room_id INTEGER PRIMARY KEY, floor INTEGER KEY, room_number TEXT, room_name TEXT NOT NULL, coordinates TEXT NOT NULL, room_info TEXT);"
     c.execute(command)
 
     db.commit()
@@ -31,12 +31,11 @@ def generate_unique_id():
 	return room_id
 
 
-def add_room(floor, room_number, room_name, coordinates, room_info=""):
+def add_room(floor, room_name, coordinates, room_number="", room_info=""):
     db = get_db()
     c = db.cursor()
     
     room_id = generate_unique_id()
-    print(room_id)
 
     command = "INSERT INTO rooms (room_id, floor, room_number, room_name, coordinates, room_info) VALUES (?, ?, ?, ?, ?, ?)"
     c.execute(command, (room_id, floor, room_number, room_name, coordinates, room_info))
@@ -90,7 +89,7 @@ def add_to_room_info(room_id, new_info):
         set_room_info(room_id, new_info)
         
         
-def update_room(room_id, floor, room_number, room_name, coordinates, room_info=""):
+def update_room(room_id, floor, room_name, coordinates, room_number="", room_info=""):
 	db = get_db()
 	c = db.cursor()
 
