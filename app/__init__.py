@@ -29,22 +29,22 @@ def editor():
         rooms = database.get_all_rooms_on_floor(floor)
         image_src = url_for("static", filename=f"img/{floor}.png") # the source of the background image
 
-        return render_template("editor.html", page_desc="Floor Editor", map=True, rooms=rooms, image_src=image_src)
+        return render_template("editor.html", page_desc="Floor Editor", map=True, rooms=rooms, image_src=image_src, floor=floor)
     else:
         if len(request.form.get('roomId')) == 0:
                 database.add_room(
-                    int(request.form.get('roomNumber')[0]),
-                    request.form.get('roomNumber'),
+                    int(request.form.get('floor')),
                     request.form.get('roomName'),
-                    request.form.get('roomCoords')
+                    request.form.get('roomCoords'),
+                    room_number=request.form.get('roomNumber')
                 )
         else:
             database.update_room(
-                int(request.form.get('roomId')),
-                    int(request.form.get('roomNumber')[0]),
-                    request.form.get('roomNumber'),
+                    int(request.form.get('roomId')),
+                    int(request.form.get('floor')),
                     request.form.get('roomName'),
-                    request.form.get('roomCoords')
+                    request.form.get('roomCoords'),
+                    room_number=request.form.get('roomNumber')
                 )
 
         return redirect("editor")
