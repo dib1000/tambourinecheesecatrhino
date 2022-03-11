@@ -41,26 +41,6 @@
       </div>
     </div>
   </nav>
-  <br>
-  <h1>{{page_desc}}</h1>
-  <div class="container-xxl my-4 bd-layout">
-    {% if map %}
-    <div>
-      <canvas height="800" width="1200" id="canvas"></canvas>
-    </div>
-  {%elif log%}
-  <form>
-    <div class="input-group mb-3">
-  <span class="input-group-text" id="user">Username</span>
-  <input type="text" class="form-control" placeholder="Username" id="username">
-  </div>
-  <div class="input-group mb-3">
-  <span class="input-group-text" id="pass">Password</span>
-  <input type="text" class="form-control" placeholder="Password" id="password">
-  </div>
-  </form>
-  {% endif %}
   {% block content %}{% endblock %}
-  </div>
   </html>
 </html>

@@ -10,21 +10,84 @@
 {% extends "base.html" %}
 
 {% block content %}
-<button id="buttonNew">New</button>
+<div class="d-flex">
+  <div class="container-xxl my-4 bd-layout">
+    <h1>Page Editor</h1>
+    <div>
+      <canvas height="800" width="1200" id="canvas"></canvas>
+    </div>
+  
+    <button id="buttonNew">New</button>
+  
+    <div id="roomCard" style="display: none;">
+      <form action="{{ url_for('editor') }}", method="POST">
+        <input type="hidden" id="roomId", name="roomId">
+        <label for="roomName">Room Name</label>
+        <input type="text" id="roomName" name="roomName"><br>
+        <label for="roomNumber">Room Number</label>
+        <input type="text" id="roomNumber" name="roomNumber"><br>
+        <label for="roomCoords">Room Coordinates</label>
+        <input type="text" id="roomCoords" name="roomCoords"><br>
+        <input type="submit" id="buttonSave" value="Save">
+      </form>
+      <button id="buttonCancel">Cancel</button>
+    </div>
+  </div>
 
-<div id="roomCard" style="display: none;">
-  <form action="{{ url_for('editor') }}", method="POST">
-    <input type="hidden" id="roomId", name="roomId">
-    <input type="hidden" value="{{ floor }}" id="floor", name="floor">
-    <label for="roomName">Room Name</label>
-    <input type="text" id="roomName" name="roomName"><br>
-    <label for="roomNumber">Room Number</label>
-    <input type="text" id="roomNumber" name="roomNumber"><br>
-    <label for="roomCoords">Room Coordinates</label>
-    <input type="text" id="roomCoords" name="roomCoords"><br>
-    <input type="submit" id="buttonSave" value="Save">
-  </form>
-  <button id="buttonCancel">Cancel</button>
+  <div class="d-flex flex-column flex-shrink-0 bg-light fixed-right" style="width: 4.5rem;">
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
+      <li class="nav-item">
+        <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+          1
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          2
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          3
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          4
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          5
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          6
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          7
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          8
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          9
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          10
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 <script>
