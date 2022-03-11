@@ -20,7 +20,7 @@ app.secret_key = urandom(32)
 
 @app.route("/")
 def index():
-    return render_template("base.html", page_desc="Welcome to Moran's Maps", map=True)
+    return render_template("map.html")
 
 
 @app.route("/editor", methods=["GET", "POST"])
@@ -65,6 +65,10 @@ def editor():
 @app.route("/about")
 def about():
     return render_template("about.html")
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
 
 
 if __name__ == "__main__":
