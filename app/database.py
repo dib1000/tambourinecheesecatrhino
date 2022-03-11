@@ -88,6 +88,17 @@ def add_to_room_info(room_id, new_info):
         set_room_info(room_id, revised_info)
     else:
         set_room_info(room_id, new_info)
+        
+        
+def update_room(room_id, floor, room_number, room_name, coordinates, room_info=""):
+	db = get_db()
+	c = db.cursor()
+
+	command = "UPDATE rooms SET floor = ?, room_number = ?, room_name = ?, coordinates = ?, room_info = ? WHERE room_id = ?"
+	c.execute(command, (floor, room_number, room_name, coordinates, room_info, room_id))
+
+	db.commit()
+	db.close()
 
 
 def delete_room(room_id):

@@ -66,3 +66,10 @@ Updated ship date
 
 emmaB -- 2022-03-10 08:40
 Added base page for app
+
+tamiT -- 2022-03-11 08:15
+Added update_room function
+Connected db functions to floor editor
+
+christopherL -- 2022-03-11 08:20
+Added bootstrap to floor editor
