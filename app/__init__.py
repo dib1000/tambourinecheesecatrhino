@@ -17,9 +17,11 @@ import database
 app = Flask(__name__)
 app.secret_key = urandom(32)
 
+
 @app.route("/")
 def index():
     return render_template("base.html", page_desc="Welcome to Moran's Maps", map=True)
+
 
 @app.route("/editor", methods=["GET", "POST"])
 def editor():
@@ -27,9 +29,19 @@ def editor():
     if request.method == "GET":
         floor = request.args.get("floor")
         rooms = database.get_all_rooms_on_floor(floor)
-        image_src = url_for("static", filename=f"img/{floor}.png") # the source of the background image
-
-        return render_template("editor.html", page_desc="Floor Editor", map=True, rooms=rooms, image_src=image_src, floor=floor)
+        image_src = url_for(
+            "static", filename=f"img/{floor}.png"
+        )  # the source of the background image
+        
+        return render_template(
+            "editor.html",
+            title="Floor Editor",
+            page_desc="Floor Editor",
+            map=True,
+            rooms=rooms,
+            image_src=image_src,
+            floor=floor
+        )
     else:
         if len(request.form.get('roomId')) == 0:
                 database.add_room(

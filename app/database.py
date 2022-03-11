@@ -15,26 +15,27 @@ def db_setup():
 
     db.commit()
     db.close()
-    
-def generate_unique_id():
-	db = get_db()
-	c = db.cursor()
-	
-	room_id = 0
-	rooms = True
-	while rooms:
-		room_id = random.randint(1000, 9999)
-		command = "SELECT * FROM rooms WHERE room_id = ?"
-		rooms = c.execute(command, (room_id,)).fetchone()
 
-	db.close()
-	return room_id
+
+def generate_unique_id():
+    db = get_db()
+    c = db.cursor()
+
+    room_id = 0
+    rooms = True
+    while rooms:
+        room_id = random.randint(1000, 9999)
+        command = "SELECT * FROM rooms WHERE room_id = ?"
+        rooms = c.execute(command, (room_id,)).fetchone()
+
+    db.close()
+    return room_id
 
 
 def add_room(floor, room_name, coordinates, room_number="", room_info=""):
     db = get_db()
     c = db.cursor()
-    
+
     room_id = generate_unique_id()
 
     command = "INSERT INTO rooms (room_id, floor, room_number, room_name, coordinates, room_info) VALUES (?, ?, ?, ?, ?, ?)"
@@ -87,17 +88,16 @@ def add_to_room_info(room_id, new_info):
         set_room_info(room_id, revised_info)
     else:
         set_room_info(room_id, new_info)
-        
-        
-def update_room(room_id, floor, room_name, coordinates, room_number="", room_info=""):
-	db = get_db()
-	c = db.cursor()
 
-	command = "UPDATE rooms SET floor = ?, room_number = ?, room_name = ?, coordinates = ?, room_info = ? WHERE room_id = ?"
-	c.execute(command, (floor, room_number, room_name, coordinates, room_info, room_id))
+def update_room(room_id, floor, room_number, room_name, coordinates, room_info=""):
+    db = get_db()
+    c = db.cursor()
 
-	db.commit()
-	db.close()
+    command = "UPDATE rooms SET floor = ?, room_number = ?, room_name = ?, coordinates = ?, room_info = ? WHERE room_id = ?"
+    c.execute(command, (floor, room_number, room_name, coordinates, room_info, room_id))
+
+    db.commit()
+    db.close()
 
 
 def delete_room(room_id):
