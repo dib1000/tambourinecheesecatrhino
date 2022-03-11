@@ -23,24 +23,29 @@ def index():
 
 @app.route("/editor", methods=["GET", "POST"])
 def editor():
-    # GET request: display the floor editor
-    if request.method == "GET":
-        floor = request.args.get("floor")
-        rooms = database.get_all_rooms_on_floor(floor)
-        image_src = url_for("static", filename=f"img/{floor}.png") # the source of the background image
-
-        return render_template("editor.html", rooms=rooms, image_src=image_src)
-
-    # POST request: handle editing a room or creating a new room
-    else:
-    	if len(request.form.get('roomId')) == 0:
-	    	database.add_room(
-	    		int(request.form.get('roomNumber')[0]),
-	    		request.form.get('roomNumber'),
-	    		request.form.get('roomName'),
-	    		request.form.get('roomCoords')
-	    	)
-        return ""
+	floor = request.args.get("floor")
+	rooms = database.get_all_rooms_on_floor(floor)
+	print(rooms)
+	image_src = url_for("static", filename=f"img/{floor}.png") # the source of the background image
+	# GET request: display the floor editor
+	# POST request: handle editing a room or creating a new room
+	if request.method == "POST":
+		if len(request.form.get('roomId')) == 0:
+		    	database.add_room(
+		    		int(request.form.get('roomNumber')[0]),
+		    		request.form.get('roomNumber'),
+		    		request.form.get('roomName'),
+		    		request.form.get('roomCoords')
+		    	)
+		else:
+			database.update_room(
+				int(request.form.get('roomId')),
+		    		int(request.form.get('roomNumber')[0]),
+		    		request.form.get('roomNumber'),
+		    		request.form.get('roomName'),
+		    		request.form.get('roomCoords')
+		    	)
+	return render_template("editor.html", rooms=rooms, image_src=image_src)
 
 
 @app.route("/about")
