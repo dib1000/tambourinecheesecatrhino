@@ -78,3 +78,6 @@ emmaB -- 2022-03-11 08:38
 Added login page for admin
 Not using base.html page anymore, pages are separated into different html files
 Added access to editor page in navbar
+
+christopherL -- 2022-03-14 08:10
+Made sidebar floor select work
