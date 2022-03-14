@@ -22,6 +22,7 @@
     <div id="roomCard" style="display: none;">
       <form action="{{ url_for('editor') }}", method="POST">
         <input type="hidden" id="roomId", name="roomId">
+        <input type="hidden" value="{{ floor }}" id="floor", name="floor">
         <label for="roomName">Room Name</label>
         <input type="text" id="roomName" name="roomName"><br>
         <label for="roomNumber">Room Number</label>
