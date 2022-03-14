@@ -37,52 +37,52 @@
   <div class="d-flex flex-column flex-shrink-0 bg-light fixed-right" style="width: 4.5rem;">
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
-        <a href="#" class="nav-link active py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=1) }}" id="nav1" class="nav-link py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
           1
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=2) }}" id="nav2" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           2
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=3) }}" id="nav3" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           3
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=4) }}" id="nav4" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           4
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=5) }}" id="nav5" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           5
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=6) }}" id="nav6" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           6
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=7) }}" id="nav7" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           7
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=8) }}" id="nav8" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           8
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=9) }}" id="nav9" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           9
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+        <a href="{{ url_for('editor', floor=10) }}" id="nav10" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
           10
         </a>
       </li>
@@ -93,6 +93,7 @@
 <script>
   let imageSrc = "{{ image_src }}";
   let roomData = "{{ rooms }}";
+  document.getElementById("nav{{ floor }}").classList.add("active");
 </script>
 <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
 {% endblock %}
