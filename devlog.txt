@@ -90,3 +90,6 @@ Made sidebar floor select work
 
 owenY -- 2022-03-14 08:40
 Connected admin login to session
+
+emmaB -- 2022-03-14 08:23
+Added info to the about page
