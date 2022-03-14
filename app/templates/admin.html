@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+</head>
+<body>
+
+<h1>Admin Login</h1>
+<p>Enter the administrator password to make changes to the site as an admin.</p>
+
+<form method="post" action="/admin">
+    <input type="password" name="password" placeholder="Password">
+    <input type="submit" name="authenticate" value="Login">
+    {% if error %}
+    <p style="color:red">That password is incorrect! Ninjas from the CS DOJO have been alerted.</p>
+    {% endif %}
+</form>
+
+</body>
+</html>
