@@ -16,9 +16,9 @@
     <div>
       <canvas height="800" width="1200" id="canvas"></canvas>
     </div>
-  
-    <button id="buttonNew">New</button>
-  
+
+    <button id="buttonNew" class="btn btn-outline-success">New</button>
+
     <div id="roomCard" style="display: none;">
       <form action="{{ url_for('editor') }}", method="POST">
         <input type="hidden" id="roomId", name="roomId">
@@ -35,7 +35,7 @@
     </div>
   </div>
 
-  <div class="d-flex flex-column flex-shrink-0 bg-light fixed-right" style="width: 4.5rem;">
+  <div class="d-flex flex-column flex-shrink-0 bg-light fixed-right align-middle" style="width: 4.5rem;">
     <ul class="nav nav-pills nav-flush flex-column mb-auto text-center">
       <li class="nav-item">
         <a href="{{ url_for('editor', floor=1) }}" id="nav1" class="nav-link py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
