@@ -67,6 +67,9 @@ Updated ship date
 emmaB -- 2022-03-10 08:40
 Added base page for app
 
+owenY -- 2022-03-10 08:40
+Added admin login page
+
 tamiT -- 2022-03-11 08:15
 Added update_room function
 Connected db functions to floor editor
@@ -79,5 +82,11 @@ Added login page for admin
 Not using base.html page anymore, pages are separated into different html files
 Added access to editor page in navbar
 
+owenY -- 2022-03-11 08:40
+Added backend to admin login
+
 christopherL -- 2022-03-14 08:10
 Made sidebar floor select work
+
+owenY -- 2022-03-14 08:40
+Connected admin login to session
