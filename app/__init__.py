@@ -62,7 +62,7 @@ def editor():
                 room_number=request.form.get('roomNumber')
             )
 
-        return redirect("editor")
+        return redirect(url_for("editor", floor=request.form.get("floor")))
 
 
 @app.route("/about")
