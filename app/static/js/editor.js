@@ -24,14 +24,6 @@ let buttonCancel = document.getElementById("buttonCancel");
 
 let currentRoom = [];
 
-// set map as the background
-let bg = new Image();
-bg.src = imageSrc;
-bg.onload = () => {
-  ctx.drawImage(bg, 0, (c.clientHeight - bg.height) / 2);
-}
-// draw existing rooms here
-
 // clear the current room form
 let clearRoomCard = () => {
   roomId.value = "";
@@ -41,14 +33,42 @@ let clearRoomCard = () => {
   currentRoom = [];
 }
 
+// draw the provided room array
+let drawRoom = (room) => {
+  let coords = room[4];
+  coords = JSON.parse("[" + coords.replaceAll("(", '{"coords": [').replaceAll(")", "]}") + "]");
+  
+  if (coords.length < 3) {
+    return;
+  }
+
+  ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
+
+  ctx.beginPath();
+  ctx.moveTo(coords[0].coords[0], coords[0].coords[1]);
+  for (let i = 1; i < coords.length; i++) {
+    ctx.lineTo(coords[i].coords[0], coords[i].coords[1]);
+  }
+  ctx.closePath();
+  ctx.fill();
+}
+
 // return to original map state
 let clearMap = () => {
   clearRoomCard();
   ctx.clearRect(0, 0, c.clientWidth, c.clientHeight);
   ctx.drawImage(bg, 0, (c.clientHeight - bg.height) / 2);
-  // draw existing rooms now
+  for (let i = 0; i < roomData.length; i++) {
+    drawRoom(roomData[i]);
+  }
 }
 
+// set map as the background
+let bg = new Image();
+bg.src = imageSrc;
+bg.onload = () => {
+  clearMap();
+}
 
 // set mode to select by default
 let mode = "select";

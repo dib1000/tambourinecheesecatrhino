@@ -99,3 +99,6 @@ Started to add CSS
 
 emmaB -- 2022-03-15 08:06
 Added base.html formatting to map and about
+
+christopherL -- 2022-03-15 08:28
+Draw existing rooms on canvas

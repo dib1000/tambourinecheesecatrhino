@@ -9,6 +9,7 @@ App and Routes
 Handles Flask routing for the app.
 """
 
+import json
 from os import urandom
 
 from flask import Flask, render_template, redirect, session, url_for, request
@@ -30,6 +31,7 @@ def editor():
     if request.method == "GET":
         floor = request.args.get("floor")
         rooms = database.get_all_rooms_on_floor(floor)
+        roomData = json.dumps(rooms)
         image_src = url_for(
             "static", filename=f"img/{floor}.png"
         )  # the source of the background image
@@ -39,7 +41,7 @@ def editor():
             title="Floor Editor",
             page_desc="Floor Editor",
             map=True,
-            rooms=rooms,
+            roomData=roomData,
             image_src=image_src,
             floor=floor
         )
