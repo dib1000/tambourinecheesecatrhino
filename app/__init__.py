@@ -28,6 +28,8 @@ def index():
 @app.route("/editor", methods=["GET", "POST"])
 def editor():
     # GET request: display the floor editor
+    if not session.get('admin'):
+        return redirect('admin')
     if request.method == "GET":
         floor = request.args.get("floor")
         rooms = database.get_all_rooms_on_floor(floor)
