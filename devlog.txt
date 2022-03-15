@@ -96,3 +96,6 @@ Added info to the about page
 
 emmaB -- 2022-03-14 13:15
 Started to add CSS
+
+emmaB -- 2022-03-15 08:06
+Added base.html formatting to map and about
