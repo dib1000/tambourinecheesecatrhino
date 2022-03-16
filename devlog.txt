@@ -102,3 +102,7 @@ Added base.html formatting to map and about
 
 christopherL -- 2022-03-15 08:28
 Draw existing rooms on canvas
+Return to original floor when editing
+
+christopherL -- 2022-03-16 08:13
+Make floor 1 default editor page
