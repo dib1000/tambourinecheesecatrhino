@@ -99,7 +99,7 @@ def admin():
         error = werkzeug.security.check_password_hash(key_hash, password)  # true if password correct
         if error == True:
             session['admin'] = True
-            return redirect(url_for('editor'))
+            return redirect(url_for('editor', floor=1))
         return render_template("admin.html", error=not error)
 
 

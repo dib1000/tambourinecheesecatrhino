@@ -24,18 +24,18 @@
   </style>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Moran's Maps</span>
+    <a class="navbar-brand mb-0 h1"href="{{ url_for('index') }}">Moran's Maps</a>
     <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item">
-          <a class="nav-link" href="{{url_for('index')}}">Maps</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{{url_for('about')}}">About</a>
-        </li>
+        <a class="nav-link" href="{{ url_for('index') }}">Maps</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{{ url_for('about') }}">About</a>
+      </li>
       </ul>
       <span class="navbar-text">
-        <a class="nav-link" href="{{url_for('editor')}}">Edit</a>
+        <a class="nav-link" href="{{ url_for('editor', floor=1) }}">Edit</a>
       </span>
       </div>
     </div>
