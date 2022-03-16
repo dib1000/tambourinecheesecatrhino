@@ -3,7 +3,7 @@ import random
 
 
 def get_db():
-    return sqlite3.connect("database.db")
+    return sqlite3.connect("../database.db")
 
 
 def db_setup():
