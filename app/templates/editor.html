@@ -13,36 +13,37 @@
 <div class="d-flex">
   <div class="container-xxl my-4 bd-layout">
     <h1>Page Editor</h1>
-    <div>
-      <canvas height="800" width="1200" id="canvas"></canvas>
-    </div>
-  
-    <div>
-      <button id="buttonNew" class="btn btn-success">New</button>
-    </div>
+    <div class="row">
+      <div class="col-9">
+        <canvas height="600" width="900" id="canvas"></canvas>
+        <div>
+          <button id="buttonNew" class="btn btn-success">New</button>
+        </div>
+      </div>
+      <div class="col-3">
+        <div id="roomCard" class="mt-3" style="display: none;">
+          <form action="{{ url_for('editor') }}", method="POST">
+            <input type="hidden" id="roomId", name="roomId">
+            <input type="hidden" value="{{ floor }}" id="floor", name="floor">
     
-    <div id="roomCard" class="mt-3" style="display: none;">
-      <form action="{{ url_for('editor') }}", method="POST">
-        <input type="hidden" id="roomId", name="roomId">
-        <input type="hidden" value="{{ floor }}" id="floor", name="floor">
-
-        <div class="mb-3">
-          <label for="roomName" class="form-label">Room Name</label>
-          <input type="text" class="form-control" id="roomName" name="roomName">
+            <div class="mb-3">
+              <label for="roomName" class="form-label">Room Name</label>
+              <input type="text" class="form-control" id="roomName" name="roomName">
+            </div>
+            <div class="mb-3">
+              <label for="roomNumber" class="form-label">Room Number</label>
+              <input type="text" class="form-control" id="roomNumber" name="roomNumber">
+            </div>
+            <div class="mb-3">
+              <label for="roomCoords" class="form-label">Room Coordinates</label>
+              <input type="text" class="form-control" id="roomCoords" name="roomCoords">
+            </div>
+    
+            <input type="submit" class="btn btn-primary" id="buttonSave" value="Save">
+            <button id="buttonCancel" class="btn btn-danger">Cancel</button>
+          </form>
         </div>
-        <div class="mb-3">
-          <label for="roomNumber" class="form-label">Room Number</label>
-          <input type="text" class="form-control" id="roomNumber" name="roomNumber">
-        </div>
-        <div class="mb-3">
-          <label for="roomCoords" class="form-label">Room Coordinates</label>
-          <input type="text" class="form-control" id="roomCoords" name="roomCoords">
-        </div>
-
-        <input type="submit" class="btn btn-primary" id="buttonSave" value="Save">
-        <button id="buttonCancel" class="btn btn-danger">Cancel</button>
-      </form>
-      
+      </div>
     </div>
   </div>
 
