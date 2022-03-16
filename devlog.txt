@@ -106,3 +106,6 @@ Return to original floor when editing
 
 christopherL -- 2022-03-16 08:13
 Make floor 1 default editor page
+
+emmaB -- 2022-03-16 08:35
+Added CSS styling for heading and about info card

@@ -2,3 +2,32 @@
 SoftDev
 P02 -- Interactive Map of Stuy
 2022-03-23 */
+
+#canvas {
+  border: 1px solid black;
+  cursor: crosshair;
+}
+
+nav .navbar-nav li a{
+  color: white !important;
+  }
+nav .navbar-text a{
+  color: white !important;
+}
+
+nav .navbar-brand {
+  color: white !important;
+}
+
+nav .navbar-nav li a:hover{
+  background-color:#0d6efd !important;
+}
+
+nav .navbar-text a:hover{
+  background-color: #0d6efd !important;
+}
+
+.card .card-title {
+  background-color: #0d6efd !important;
+  color: white !important;
+}
