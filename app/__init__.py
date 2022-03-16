@@ -72,9 +72,13 @@ def about():
     return render_template("about.html")
 
 
-@app.route("/login")
-def login():
-    return render_template("login.html")
+@app.route("/logout")
+def logout():
+    if session.get('admin'):
+        session.pop('admin')
+        return redirect('/')
+    else:
+        return redirect('/')
 
 
 @app.route("/admin", methods=["GET", "POST"])
@@ -86,8 +90,6 @@ def admin():
     key_hash = werkzeug.security.generate_password_hash(key)
     # TODO: just store the already generated key_hash
     # key_hash = "pbkdf2:sha256:260000$Yw9XjC6Y3VrAJRv1$9f64904c5bcd7adc04912286324e01d387da41d426e8a769f08ec57941f9b1d4"
-
-    print(request)
 
     if request.method == "GET":
         if session.get('admin'):
