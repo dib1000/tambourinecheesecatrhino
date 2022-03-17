@@ -104,7 +104,19 @@ christopherL -- 2022-03-15 08:28
 Draw existing rooms on canvas
 Return to original floor when editing
 
+owenY -- 2022-03-15 08:40
+Editor page only accessible to admin
+Fixed login CSS
+
 christopherL -- 2022-03-16 08:13
 Make floor 1 default editor page
+
+emmaB -- 2022-03-16 08:35
+Added CSS styling for heading and about info card
+
+owenY -- 2022-03-16 08:40
+Admin can now logout
+
+christopherL -- 2022-03-17 08:09
 Add canvas scaling
 Add side panel
