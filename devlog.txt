@@ -123,3 +123,6 @@ Add side panel
 
 christopherL -- 2022-03-17 08:47
 Add room selection
+
+emmaB -- 2022-03-17 10:51
+Got rid of wipe button in map.html
