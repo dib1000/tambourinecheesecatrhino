@@ -3,7 +3,7 @@ import random
 
 
 def get_db():
-    return sqlite3.connect("../database.db")
+    return sqlite3.connect("database.db")
 
 
 def db_setup():
@@ -74,7 +74,7 @@ def set_room_info(room_id, info):
     c = db.cursor()
 
     command = "UPDATE rooms SET room_info = ? WHERE room_id = ?"
-    c.execute(command, (info, room_number))
+    c.execute(command, (info, room_id))
 
     db.commit()
     db.close()
