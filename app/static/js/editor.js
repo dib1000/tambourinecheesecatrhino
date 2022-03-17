@@ -13,6 +13,13 @@ let ctx = c.getContext("2d");
 ctx.fillStyle = "rgba(255, 0, 0, 0.5)";
 ctx.strokeStyle = "black";
 
+// apply scaling
+const originalWidth = 1200;
+const originalHeight = 800;
+const widthScale = c.clientWidth / originalWidth;
+const heightScale = c.clientHeight / originalHeight
+ctx.scale(widthScale, heightScale);
+
 // get html elements
 let buttonNew = document.getElementById("buttonNew");
 let roomCard = document.getElementById("roomCard");
@@ -56,8 +63,8 @@ let drawRoom = (room) => {
 // return to original map state
 let clearMap = () => {
   clearRoomCard();
-  ctx.clearRect(0, 0, c.clientWidth, c.clientHeight);
-  ctx.drawImage(bg, 0, (c.clientHeight - bg.height) / 2);
+  ctx.clearRect(0, 0, originalWidth, originalHeight);
+  ctx.drawImage(bg, 0, (originalHeight - bg.height) / 2);
   for (let i = 0; i < roomData.length; i++) {
     drawRoom(roomData[i]);
   }
@@ -93,8 +100,8 @@ let cancelCurrentRoom = () => {
 
 // room drawing
 let drawVertex = (e) => {
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
+  let mouseX = e.offsetX / widthScale;
+  let mouseY = e.offsetY / heightScale;
 
   ctx.fillStyle = "green";
   ctx.fillRect(mouseX - 1, mouseY - 1, 2, 2);
@@ -122,8 +129,8 @@ let completeRoom = (e) => {
 
 // selection mode
 let checkSelection = (e) => {
-  let mouseX = e.offsetX;
-  let mouseY = e.offsetY;
+  let mouseX = e.offsetX / widthScale;
+  let mouseY = e.offsetY / heightScale;
 
   // placeholder roomData
   roomData = "[]"

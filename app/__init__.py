@@ -34,9 +34,7 @@ def editor():
         floor = request.args.get("floor")
         rooms = database.get_all_rooms_on_floor(floor)
         roomData = json.dumps(rooms)
-        image_src = url_for(
-            "static", filename=f"img/{floor}.png"
-        )  # the source of the background image
+        image_src = url_for("static", filename=f"img/{floor}.png")
 
         return render_template(
             "editor.html",
