@@ -18,11 +18,7 @@
         <canvas height="600" width="900" id="canvas"></canvas>
         <div>
           <button id="buttonNew" class="btn btn-success">New</button>
-        </div>
-        <div class="ps-2">
-          <form action="{{ url_for('logout') }}">
-            <input type="submit" id="buttonLogout" class="btn btn-danger" value="Logout">
-          </form>
+          <a href="{{ url_for('logout') }}"><button class="btn btn-danger">Logout</button></a>
         </div>
       </div>
       <div class="col-3">
