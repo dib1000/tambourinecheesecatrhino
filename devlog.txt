@@ -130,7 +130,10 @@ Got rid of wipe button in map.html
 christopherL -- 2022-03-18
 Fixed room updating
 Fixed room display
-Reformat
+Reformated
 
 emmaB -- 2022-03-18
 Added CSS to the floor selector navpills
+
+christopherL -- 2022-03-18
+Added floor viewer

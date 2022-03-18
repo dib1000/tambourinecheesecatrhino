@@ -22,7 +22,19 @@ app.secret_key = urandom(32)
 
 @app.route("/")
 def index():
-    return render_template("map.html")
+    floor = request.args.get("floor")
+    if not floor:
+        floor = "1"
+    rooms = database.get_all_rooms_on_floor(floor)
+    roomData = json.dumps(rooms)
+    image_src = url_for("static", filename=f"img/{floor}.png")
+
+    return render_template(
+        "map.html",
+        roomData=roomData,
+        image_src=image_src,
+        floor=floor,
+    )
 
 
 @app.route("/editor", methods=["GET", "POST"])
@@ -32,15 +44,14 @@ def editor():
         return redirect("admin")
     if request.method == "GET":
         floor = request.args.get("floor")
+        if not floor:
+            floor = "1"
         rooms = database.get_all_rooms_on_floor(floor)
         roomData = json.dumps(rooms)
         image_src = url_for("static", filename=f"img/{floor}.png")
 
         return render_template(
             "editor.html",
-            title="Floor Editor",
-            page_desc="Floor Editor",
-            map=True,
             roomData=roomData,
             image_src=image_src,
             floor=floor,
@@ -102,7 +113,7 @@ def admin():
         )  # true if password correct
         if error == True:
             session["admin"] = True
-            return redirect(url_for("editor", floor=1))
+            return redirect(url_for("editor"))
         return render_template("admin.html", error=not error)
 
 

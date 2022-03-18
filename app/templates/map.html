@@ -1,25 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-  <!--
-    Tambourine Cheese Cat Rhino :: Emma Buller, Christopher Liu, Tami Takada, Owen Yaggy
-    SoftDev pd0
-    P02 -- Interactive Map of Stuy
-    2022-03-22
+<!--
+  tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
+  SoftDev pd0
+  P02 -- Interactive Map of Stuy
+  2022-03-23
 
-    This is where the maps will be
-  -->
+  Map Viewer
+-->
 
-  {% extends "base.html" %}
-  {% block title %}View Maps{% endblock %}
-  {% block content %}
-  <br>
-  <h1>Click to place vertexes, press left shift to draw polygon</h1>
-
+{% extends "base.html" %}
+{% block title %}Map{% endblock %}
+{% block content %}
+<div class="d-flex">
   <div class="container-xxl my-4 bd-layout">
-    <div>
-      <canvas height="800" width="1200" id="canvas"></canvas>
+    <h1>Welcome to Moran's Maps!</h1>
+    <p>Click on a room to see room information.</p>
+    <div class="row">
+      <div class="col-9">
+        <canvas height="600" width="900" id="canvas"></canvas>
+      </div>
+      <div class="col-3 border">
+        <div id="roomCard" class="mt-3" style="display: none;">
+          <h3 id="roomName">Room Name</h3>
+          <h4 id="roomNumber">Room Number</h4>
+        </div>
+      </div>
     </div>
   </div>
 
-  <script src="{{ url_for('static', filename='js/polygon.js') }}"></script>
-{%endblock%}
+  <div class="d-flex flex-column flex-shrink-0 bg-light fixed-right align-self-center" style="width: 4.5rem;">
+    <ul class="nav nav-pills nav-flush flex-column mb-auto text-center bg-danger">
+      <li class="nav-item">
+        <a href="{{ url_for('index', floor=1) }}" id="nav1" class="nav-link py-3 border-bottom" aria-current="page" title="Home" data-bs-toggle="tooltip" data-bs-placement="right">
+          1
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=2) }}" id="nav2" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          2
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=3) }}" id="nav3" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          3
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=4) }}" id="nav4" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          4
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=5) }}" id="nav5" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          5
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=6) }}" id="nav6" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          6
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=7) }}" id="nav7" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          7
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=8) }}" id="nav8" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          8
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=9) }}" id="nav9" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          9
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('index', floor=10) }}" id="nav10" class="nav-link py-3 border-bottom" title="Dashboard" data-bs-toggle="tooltip" data-bs-placement="right">
+          10
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  let imageSrc = "{{ image_src }}";
+  let roomData = {{ roomData|safe }};
+  document.getElementById("nav{{ floor }}").classList.add("active");
+</script>
+<script src="{{ url_for('static', filename='js/map.js') }}"></script>
+{% endblock %}
