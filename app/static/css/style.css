@@ -36,6 +36,6 @@ nav .navbar-text a:hover{
   color: white !important;
 }
 
-.nav-pills li a:hover {
+.nav-pills li a:hover:not(.active) {
   background-color: #b02a37 !important;
 }
