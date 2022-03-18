@@ -28,8 +28,8 @@ def index():
 @app.route("/editor", methods=["GET", "POST"])
 def editor():
     # GET request: display the floor editor
-    if not session.get('admin'):
-        return redirect('admin')
+    if not session.get("admin"):
+        return redirect("admin")
     if request.method == "GET":
         floor = request.args.get("floor")
         rooms = database.get_all_rooms_on_floor(floor)
@@ -43,23 +43,24 @@ def editor():
             map=True,
             roomData=roomData,
             image_src=image_src,
-            floor=floor
+            floor=floor,
         )
     else:
-        if len(request.form.get('roomId')) == 0:
+        if len(request.form.get("roomId")) == 0:
             database.add_room(
-                int(request.form.get('floor')),
-                request.form.get('roomName'),
-                request.form.get('roomCoords'),
-                room_number=request.form.get('roomNumber')
+                int(request.form.get("floor")),
+                request.form.get("roomName"),
+                request.form.get("roomCoords"),
+                room_number=request.form.get("roomNumber"),
             )
         else:
+            print(type(request.form.get("roomNumber")))
             database.update_room(
-                int(request.form.get('roomId')),
-                int(request.form.get('floor')),
-                request.form.get('roomName'),
-                request.form.get('roomCoords'),
-                room_number=request.form.get('roomNumber')
+                int(request.form.get("roomId")),
+                int(request.form.get("floor")),
+                request.form.get("roomName"),
+                request.form.get("roomCoords"),
+                room_number=request.form.get("roomNumber"),
             )
 
         return redirect(url_for("editor", floor=request.form.get("floor")))
@@ -72,11 +73,11 @@ def about():
 
 @app.route("/logout")
 def logout():
-    if session.get('admin'):
-        session.pop('admin')
-        return redirect('/')
+    if session.get("admin"):
+        session.pop("admin")
+        return redirect("/")
     else:
-        return redirect('/')
+        return redirect("/")
 
 
 @app.route("/admin", methods=["GET", "POST"])
@@ -90,16 +91,18 @@ def admin():
     # key_hash = "pbkdf2:sha256:260000$Yw9XjC6Y3VrAJRv1$9f64904c5bcd7adc04912286324e01d387da41d426e8a769f08ec57941f9b1d4"
 
     if request.method == "GET":
-        if session.get('admin'):
-            return redirect(url_for('editor'))
+        if session.get("admin"):
+            return redirect(url_for("editor"))
         else:
-            return render_template('admin.html', error=False)
+            return render_template("admin.html", error=False)
     if request.method == "POST":
-        password = request.form['password']
-        error = werkzeug.security.check_password_hash(key_hash, password)  # true if password correct
+        password = request.form["password"]
+        error = werkzeug.security.check_password_hash(
+            key_hash, password
+        )  # true if password correct
         if error == True:
-            session['admin'] = True
-            return redirect(url_for('editor', floor=1))
+            session["admin"] = True
+            return redirect(url_for("editor", floor=1))
         return render_template("admin.html", error=not error)
 
 

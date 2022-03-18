@@ -126,3 +126,11 @@ Add room selection
 
 emmaB -- 2022-03-17 10:51
 Got rid of wipe button in map.html
+
+christopherL -- 2022-03-18
+Fixed room updating
+Fixed room display
+Reformat
+
+emmaB -- 2022-03-18
+Added CSS to the floor selector navpills
