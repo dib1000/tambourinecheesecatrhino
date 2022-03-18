@@ -90,7 +90,7 @@ def add_to_room_info(room_id, new_info):
         set_room_info(room_id, new_info)
 
 
-def update_room(room_id, floor, room_number, room_name, coordinates, room_info=""):
+def update_room(room_id, floor, coordinates, room_number="", room_name="", room_info=""):
     db = get_db()
     c = db.cursor()
 
@@ -99,7 +99,6 @@ def update_room(room_id, floor, room_number, room_name, coordinates, room_info="
 
     db.commit()
     db.close()
-
 
 def delete_room(room_id):
     db = get_db()
