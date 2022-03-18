@@ -17,7 +17,7 @@ ctx.strokeStyle = "black";
 const originalWidth = 1200;
 const originalHeight = 800;
 const widthScale = c.clientWidth / originalWidth;
-const heightScale = c.clientHeight / originalHeight
+const heightScale = c.clientHeight / originalHeight;
 ctx.scale(widthScale, heightScale);
 
 // get html elements
@@ -38,13 +38,15 @@ let clearRoomCard = () => {
   roomNumber.value = "";
   roomCoords.value = "";
   currentRoom = [];
-}
+};
 
 // draw the provided room array
 let drawRoom = (room) => {
   let coords = room[4];
-  coords = JSON.parse("[" + coords.replaceAll("(", '{"coords": [').replaceAll(")", "]}") + "]");
-  
+  coords = JSON.parse(
+    "[" + coords.replaceAll("(", '{"coords": [').replaceAll(")", "]}") + "]"
+  );
+
   if (coords.length < 3) {
     return;
   }
@@ -58,7 +60,7 @@ let drawRoom = (room) => {
   }
   ctx.closePath();
   ctx.fill();
-}
+};
 
 // return to original map state
 let clearMap = () => {
@@ -68,14 +70,14 @@ let clearMap = () => {
   for (let i = 0; i < roomData.length; i++) {
     drawRoom(roomData[i]);
   }
-}
+};
 
 // set map as the background
 let bg = new Image();
 bg.src = imageSrc;
 bg.onload = () => {
   clearMap();
-}
+};
 
 // set mode to select by default
 let mode = "select";
@@ -96,7 +98,7 @@ let cancelCurrentRoom = () => {
   clearMap();
   mode = "select";
   c.style.cursor = "grab";
-}
+};
 
 // room drawing
 let drawVertex = (e) => {
@@ -130,27 +132,29 @@ let completeRoom = (e) => {
 // selection mode
 let didClickRoom = (x, y, room) => {
   let coords = room[4];
-  coords = JSON.parse("[" + coords.replaceAll("(", '{"coords": [').replaceAll(")", "]}") + "]");
+  coords = JSON.parse(
+    "[" + coords.replaceAll("(", '{"coords": [').replaceAll(")", "]}") + "]"
+  );
   coords.push(coords[0]);
 
   let clicked = false;
-  for (let i=1, j=0; i < coords.length; i++, j++) {
+  for (let i = 1, j = 0; i < coords.length; i++, j++) {
     let ix = coords[i].coords[0];
     let iy = coords[i].coords[1];
     let jx = coords[j].coords[0];
     let jy = coords[j].coords[1];
-    let iySide = (iy > y);
-    let jySide = (jy > y);
+    let iySide = iy > y;
+    let jySide = jy > y;
 
     if (iySide != jySide) {
-      if (x < (jx-ix) * (y-iy) / (jy-iy) + ix) {
+      if (x < ((jx - ix) * (y - iy)) / (jy - iy) + ix) {
         clicked = !clicked;
       }
     }
   }
 
   return clicked;
-}
+};
 
 let showSelected = (room) => {
   roomCard.style.display = "block";
@@ -159,10 +163,10 @@ let showSelected = (room) => {
   c.style.cursor = "crosshair";
 
   roomId.value = room[0];
-  roomName.value = room[2];
-  roomNumber.value = room[3];
+  roomName.value = room[3];
+  roomNumber.value = room[2];
   roomCoords.value = room[4];
-}
+};
 
 let checkSelection = (e) => {
   let mouseX = e.offsetX / widthScale;
@@ -173,7 +177,7 @@ let checkSelection = (e) => {
       showSelected(roomData[i]);
     }
   }
-}
+};
 
 // event handlers
 c.addEventListener("click", (e) => {
