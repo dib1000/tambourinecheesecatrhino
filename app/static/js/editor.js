@@ -177,6 +177,7 @@ let checkSelection = (e) => {
   for (let i = 0; i < roomData.length; i++) {
     if (didClickRoom(mouseX, mouseY, roomData[i])) {
       showSelected(roomData[i]);
+      return;
     }
   }
 };
