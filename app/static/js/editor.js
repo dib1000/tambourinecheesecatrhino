@@ -1,9 +1,11 @@
-// tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
-// SoftDev pd0
-// P02 -- Interactive Map of Stuy
-// 2022-03-23
+/*
+  tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
+  SoftDev pd0
+  P02 -- Interactive Map of Stuy
+  2022-03-23
 
-// Floor Editor JS
+  Floor Editor JS
+*/
 
 // get canvas
 let c = document.getElementById("canvas");
