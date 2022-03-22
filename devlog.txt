@@ -154,6 +154,9 @@ More CSS
 christopherL -- 2022-03-18 08:41
 Added floor viewer
 
+owenY -- 2022-03-18 08:41
+Added HTML to set room type and amenities
+
 tamiT -- 2022-03-18
 Finished adding rooms on all floors (5, 6, 7, 9)
 
@@ -161,3 +164,9 @@ christopherL -- 2022-03-21 08:15
 Updated and standardized TMPG headers
 Slightly optimized room selection detection function
 Added escalators
+
+owenY -- 2022-03-21 08:41
+Connected room type and amenities to database
+
+owenY -- 2022-03-22 08:35
+Room type and amenities selection fully functional
