@@ -1,27 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-  <!--
-    Tambourine Cheese Cat Rhino :: Emma Buller, Christopher Liu, Tami Takada, Owen Yaggy
-    SoftDev pd0
-    P02 -- Interactive Map of Stuy
-    2022-03-22
+<!--
+  tambourinecheesecatrhino (Emma Buller, Tami Takada, Christopher Liu, Owen Yaggy)
+  SoftDev pd0
+  P02 -- Interactive Map of Stuy
+  2022-03-23
 
-    TThis is the about page
-  -->
+  About Page
+-->
 
-  {% extends "base.html" %}
-  {% block title %}About{% endblock %}
-  {% block content %}
-  <div class="container-xxl my-4 bd-layout">
-    <div class="mb-4">
-      <h1>Moran's Maps by tambourinecheesecatrhino </h1>
-    </div>
-    <div class="row">
-      <div class="col-4" align="center">
-        <div class="card border-danger border-4" style="width: 20rem;">
-          <img src="{{url_for('static', filename='img/logo.png')}}" class="card-img-top" alt="team logo">
-            <div class="card-body">
-              <h5 class="card-title">Team Members</h5>
+{% extends "base.html" %}
+{% block title %}About{% endblock %}
+{% block content %}
+<div class="container-xxl my-4 bd-layout">
+  <div class="mb-4">
+    <h1>Moran's Maps by tambourinecheesecatrhino </h1>
+  </div>
+  <div class="row">
+    <div class="col-4" align="center">
+      <div class="card border-danger border-4" style="width: 20rem;">
+        <img src="{{url_for('static', filename='img/logo.png')}}" class="card-img-top" alt="team logo">
+          <div class="card-body">
+            <h5 class="card-title">Team Members</h5>
             <p class="card-text">
               Emma Buller - PM, HTML, CSS <br>
               Christopher Liu - Devo, Javascript <br>
@@ -31,10 +29,13 @@
           </div>
         </div>
       </div>
-      <div class="col-8">
-        <p>
-          Users will have access to floor plans of the school for all floors, and they can click on various rooms to get information about those rooms. Non-classrooms will be labeled (e.g. college office), and all rooms will have the room number available to view.
-        </p>
-    </div>
+    <div class="col-8">
+      <p>
+        Users will have access to floor plans of the school for all floors, and
+        they can click on various rooms to get information about those rooms.
+        Non-classrooms will be labeled (e.g. college office), and all rooms
+        will have the room number available to view.
+      </p>
   </div>
-{%endblock%}
+</div>
+{% endblock %}
