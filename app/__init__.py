@@ -132,15 +132,15 @@ def admin():
         
 @app.route("/search", methods=["GET"])
 def search():
-	rooms = database.get_room_by_number(request.args.get("query"))
-	if not rooms:
-		q = request.args.get("query")
-		return render_template("search.html", q = q)
-	else:
-		floor = rooms[1]
-		room_id = rooms[0]
-		return redirect(url_for("index", floor=floor, room_id=room_id))
-			
+    rooms = database.get_room_by_number(request.args.get("query"))
+    if not rooms:
+        q = request.args.get("query")
+        return render_template("search.html", q = q)
+    else:
+        floor = rooms[1]
+        room_id = rooms[0]
+        return redirect(url_for("index", floor=floor, room_id=room_id))
+
 
 if __name__ == "__main__":
     database.db_setup()
