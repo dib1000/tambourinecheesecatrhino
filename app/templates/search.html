@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="{{ url_for('search') }}" >
+	<input type="text" name="query" {% if q %} value="{{ q }}" {% endif %}>
+	<input type="submit" class="btn btn-primary">
+</form>
+
+{% if q %}
+<h2>No results</h2>
+{% endif %}
+
+{% endblock %}
