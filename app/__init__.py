@@ -11,6 +11,7 @@ Handles Flask routing for the app.
 
 import json
 from os import urandom
+from select import select
 
 from flask import Flask, render_template, redirect, session, url_for, request
 import database
@@ -24,9 +25,11 @@ app.secret_key = urandom(32)
 @app.route("/")
 def index():
     floor = request.args.get("floor")
-    selected_room_id = request.args.get("room_id")
     if not floor:
         floor = "1"
+    selected_room_id = request.args.get("room_id")
+    if not selected_room_id:
+        selected_room_id = "0"
     rooms = database.get_all_rooms_on_floor(floor)
     roomData = json.dumps(rooms)
     image_src = url_for("static", filename=f"img/{floor}.png")

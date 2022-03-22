@@ -168,5 +168,12 @@ Added escalators
 owenY -- 2022-03-21 08:41
 Connected room type and amenities to database
 
+tamiT -- 2022-03-22 08:20
+Added room search feature
+
 owenY -- 2022-03-22 08:35
 Room type and amenities selection fully functional
+
+christopherL -- 2022-03-22 08:36
+Added room highlight when searched
+Handle case where no room is selected
