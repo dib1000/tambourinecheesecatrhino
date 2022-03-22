@@ -24,6 +24,7 @@ app.secret_key = urandom(32)
 @app.route("/")
 def index():
     floor = request.args.get("floor")
+    selected_room_id = request.args.get("room_id")
     if not floor:
         floor = "1"
     rooms = database.get_all_rooms_on_floor(floor)
@@ -33,6 +34,7 @@ def index():
     return render_template(
         "map.html",
         roomData=roomData,
+        selected_room_id=selected_room_id,
         image_src=image_src,
         floor=floor,
     )
@@ -124,7 +126,18 @@ def admin():
             session["admin"] = True
             return redirect(url_for("editor"))
         return render_template("admin.html", error=not error)
-
+        
+@app.route("/search", methods=["GET"])
+def search():
+	rooms = database.get_room_by_number(request.args.get("query"))
+	if not rooms:
+		q = request.args.get("query")
+		return render_template("search.html", q = q)
+	else:
+		floor = rooms[1]
+		room_id = rooms[0]
+		return redirect(url_for("index", floor=floor, room_id=room_id))
+			
 
 if __name__ == "__main__":
     database.db_setup()

@@ -86,6 +86,7 @@
 <script>
   let imageSrc = "{{ image_src }}";
   let roomData = {{ roomData|safe }};
+  let selectedRoomId = {{ selected_room_id }};
   document.getElementById("nav{{ floor }}").classList.add("active");
 </script>
 <script src="{{ url_for('static', filename='js/map.js') }}"></script>
