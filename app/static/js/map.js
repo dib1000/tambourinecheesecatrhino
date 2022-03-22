@@ -48,6 +48,9 @@ let drawRoom = (room) => {
   }
 
   ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
+  if (room[0] === selectedRoomId) {
+    ctx.fillStyle = "rgba(34, 227, 34, 0.5)";
+  }
 
   ctx.beginPath();
   ctx.moveTo(coords[0].coords[0], coords[0].coords[1]);
@@ -131,7 +134,3 @@ let checkSelection = (e) => {
 c.addEventListener("click", (e) => {
   checkSelection(e);
 });
-
-buttonNew.addEventListener("click", createNewRoom);
-
-buttonCancel.addEventListener("click", cancelCurrentRoom);

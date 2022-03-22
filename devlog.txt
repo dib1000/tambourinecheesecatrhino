@@ -161,3 +161,10 @@ christopherL -- 2022-03-21 08:15
 Updated and standardized TMPG headers
 Slightly optimized room selection detection function
 Added escalators
+
+tamiT -- 2022-03-22 08:20
+Added room search feature
+
+christopherL -- 2022-03-22 08:36
+Added room highlight when searched
+Handle case where no room is selected
