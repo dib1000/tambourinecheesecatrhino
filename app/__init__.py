@@ -16,6 +16,7 @@ from select import select
 from flask import Flask, render_template, redirect, session, url_for, request
 import database
 import werkzeug.security
+import json
 
 app = Flask(__name__)
 app.secret_key = urandom(32)
@@ -62,12 +63,19 @@ def editor():
             floor=floor,
         )
     else:
+        roomInfo = {'items': [], 'type': 'other'}
+        for item in ['chalkboard', 'dryerase', 'smartboard', 'projector', 'computers']:
+            if request.form.get(item) is not None:
+                roomInfo['items'].append(item)
+        roomInfo['type'] = request.form.get('roomType')
+        roomInfo = json.dumps(roomInfo) # convert python dict to json
         if len(request.form.get("roomId")) == 0:
             database.add_room(
                 int(request.form.get("floor")),
                 request.form.get("roomName"),
                 request.form.get("roomCoords"),
                 room_number=request.form.get("roomNumber"),
+                room_info=roomInfo
             )
         else:
             print(type(request.form.get("roomNumber")))
@@ -77,6 +85,7 @@ def editor():
                 request.form.get("roomName"),
                 request.form.get("roomCoords"),
                 room_number=request.form.get("roomNumber"),
+                room_info=roomInfo
             )
 
         return redirect(url_for("editor", floor=request.form.get("floor")))

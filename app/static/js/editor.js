@@ -29,7 +29,13 @@ let roomId = document.getElementById("roomId");
 let roomName = document.getElementById("roomName");
 let roomNumber = document.getElementById("roomNumber");
 let roomCoords = document.getElementById("roomCoords");
+let roomType = document.getElementById("roomType");
 let buttonCancel = document.getElementById("buttonCancel");
+let chalkboard = document.getElementById("chalkboard");
+let dryerase = document.getElementById("dryerase");
+let smartboard = document.getElementById("smartboard");
+let projector = document.getElementById("projector");
+let computers = document.getElementById("computers");
 
 let currentRoom = [];
 
@@ -39,6 +45,12 @@ let clearRoomCard = () => {
   roomName.value = "";
   roomNumber.value = "";
   roomCoords.value = "";
+  roomType.value = "other";
+  chalkboard.checked = "";
+  dryerase.checked = "";
+  smartboard.checked = "";
+  projector.checked = "";
+  computers.checked = "";
   currentRoom = [];
 };
 
@@ -168,6 +180,13 @@ let showSelected = (room) => {
   roomName.value = room[3];
   roomNumber.value = room[2];
   roomCoords.value = room[4];
+  info = JSON.parse(room[5]);
+  if (info['items'].includes("chalkboard")) chalkboard.checked = "checked";
+  if (info['items'].includes("dryerase")) dryerase.checked = "checked";
+  if (info['items'].includes("smartboard")) smartboard.checked = "checked";
+  if (info['items'].includes("projector")) projector.checked = "checked";
+  if (info['items'].includes("computers")) computers.checked = "checked";
+  roomType.value = info['type'];
 };
 
 let checkSelection = (e) => {
