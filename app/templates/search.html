@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% block content %}
 
+<br>
 <form action="{{ url_for('search') }}" >
+	 <h3>Search by Room Number</h3>
 	<input type="text" name="query" {% if q %} value="{{ q }}" {% endif %}>
 	<input type="submit" class="btn btn-primary">
 </form>

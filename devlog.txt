@@ -177,3 +177,7 @@ Room type and amenities selection fully functional
 christopherL -- 2022-03-22 08:36
 Added room highlight when searched
 Handle case where no room is selected
+
+emmaB -- 2022-03-022 14:42
+Added navbar access to search function
+Edited some html and css
