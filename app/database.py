@@ -83,7 +83,17 @@ def get_room(room_id):
     db.close()
 
     return room
+    
+def get_room_by_number(room_number):
+    db = get_db()
+    c = db.cursor()
 
+    command = "SELECT * FROM rooms WHERE room_number = ?"
+    room = c.execute(command, (room_number,)).fetchone()
+
+    db.close()
+
+    return room
 
 def set_room_info(room_id, info):
     db = get_db()
