@@ -181,12 +181,12 @@ let showSelected = (room) => {
   roomNumber.value = room[2];
   roomCoords.value = room[4];
   info = JSON.parse(room[5]);
-  if (info['items'].includes("chalkboard")) chalkboard.checked = "checked";
-  if (info['items'].includes("dryerase")) dryerase.checked = "checked";
-  if (info['items'].includes("smartboard")) smartboard.checked = "checked";
-  if (info['items'].includes("projector")) projector.checked = "checked";
-  if (info['items'].includes("computers")) computers.checked = "checked";
-  roomType.value = info['type'];
+  if (info["items"].includes("chalkboard")) chalkboard.checked = "checked";
+  if (info["items"].includes("dryerase")) dryerase.checked = "checked";
+  if (info["items"].includes("smartboard")) smartboard.checked = "checked";
+  if (info["items"].includes("projector")) projector.checked = "checked";
+  if (info["items"].includes("computers")) computers.checked = "checked";
+  roomType.value = info["type"];
 };
 
 let checkSelection = (e) => {

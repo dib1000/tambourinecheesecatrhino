@@ -44,7 +44,7 @@ let clearRoomCard = () => {
 };
 
 // draw the provided room array
-let drawRoom = (room) => {
+let drawRoom = (room, color = "rgba(0, 0, 255, 0.5)") => {
   let coords = room[4];
   coords = JSON.parse(
     "[" + coords.replaceAll("(", '{"coords": [').replaceAll(")", "]}") + "]"
@@ -54,10 +54,7 @@ let drawRoom = (room) => {
     return;
   }
 
-  ctx.fillStyle = "rgba(0, 0, 255, 0.5)";
-  if (room[0] === selectedRoomId) {
-    ctx.fillStyle = "rgba(34, 227, 34, 0.5)";
-  }
+  ctx.fillStyle = color;
 
   ctx.beginPath();
   ctx.moveTo(coords[0].coords[0], coords[0].coords[1]);
@@ -124,20 +121,31 @@ let showSelected = (room) => {
   roomNumber.innerHTML = room[2];
   if (room[5] != "") {
     info = JSON.parse(room[5]);
-    if (info['items'].length == 0) roomAmenities.hidden = "hidden";
+    if (info["items"].length == 0) roomAmenities.hidden = "hidden";
     else roomAmenities.hidden = "";
-    if (info['items'].includes('chalkboard')) chalkboard.hidden = "";
+    if (info["items"].includes("chalkboard")) chalkboard.hidden = "";
     else chalkboard.hidden = "hidden";
-    if (info['items'].includes('dryerase')) dryerase.hidden = "";
+    if (info["items"].includes("dryerase")) dryerase.hidden = "";
     else dryerase.hidden = "hidden";
-    if (info['items'].includes('smartboard')) smartboard.hidden = "";
+    if (info["items"].includes("smartboard")) smartboard.hidden = "";
     else smartboard.hidden = "hidden";
-    if (info['items'].includes('projector')) projector.hidden = "";
+    if (info["items"].includes("projector")) projector.hidden = "";
     else projector.hidden = "hidden";
-    if (info['items'].includes('computers')) computers.hidden = "";
+    if (info["items"].includes("computers")) computers.hidden = "";
     else computers.hidden = "hidden";
-    let matchType = {"classroom": "Classroom", "lab": "Lab", "computer": "Computer Lab", "demo": "Science Demo", "art": "Art Class", "music": "Music Room", "gym": "Gym", "office": "Office", "bathroom": "Bathroom", "other": "Other"};
-    roomType.innerHTML = matchType[info['type']];
+    let matchType = {
+      classroom: "Classroom",
+      lab: "Lab",
+      computer: "Computer Lab",
+      demo: "Science Demo",
+      art: "Art Class",
+      music: "Music Room",
+      gym: "Gym",
+      office: "Office",
+      bathroom: "Bathroom",
+      other: "Other",
+    };
+    roomType.innerHTML = matchType[info["type"]];
   } else {
     chalkboard.hidden = "hidden";
     dryerase.hidden = "hidden";
@@ -156,6 +164,7 @@ let checkSelection = (e) => {
   for (let i = 0; i < roomData.length; i++) {
     if (didClickRoom(mouseX, mouseY, roomData[i])) {
       showSelected(roomData[i]);
+      drawRoom(roomData[i], "rgba(34, 227, 0, 0.5)");
       return;
     }
   }
@@ -165,3 +174,14 @@ let checkSelection = (e) => {
 c.addEventListener("click", (e) => {
   checkSelection(e);
 });
+
+// select searched room by default
+document.body.onload = () => {
+  for (let i = 0; i < roomData.length; i++) {
+    if (roomData[i][0] === selectedRoomId) {
+      console.log(roomData[i]);
+      showSelected(roomData[i]);
+      drawRoom(roomData[i], "rgba(34, 227, 0, 0.5)");
+    }
+  }
+};

@@ -11,7 +11,6 @@ Handles Flask routing for the app.
 
 import json
 from os import urandom
-from select import select
 
 from flask import Flask, render_template, redirect, session, url_for, request
 import database
@@ -63,19 +62,19 @@ def editor():
             floor=floor,
         )
     else:
-        roomInfo = {'items': [], 'type': 'other'}
-        for item in ['chalkboard', 'dryerase', 'smartboard', 'projector', 'computers']:
+        roomInfo = {"items": [], "type": "other"}
+        for item in ["chalkboard", "dryerase", "smartboard", "projector", "computers"]:
             if request.form.get(item) is not None:
-                roomInfo['items'].append(item)
-        roomInfo['type'] = request.form.get('roomType')
-        roomInfo = json.dumps(roomInfo) # convert python dict to json
+                roomInfo["items"].append(item)
+        roomInfo["type"] = request.form.get("roomType")
+        roomInfo = json.dumps(roomInfo)  # convert python dict to json
         if len(request.form.get("roomId")) == 0:
             database.add_room(
                 int(request.form.get("floor")),
                 request.form.get("roomName"),
                 request.form.get("roomCoords"),
                 room_number=request.form.get("roomNumber"),
-                room_info=roomInfo
+                room_info=roomInfo,
             )
         else:
             print(type(request.form.get("roomNumber")))
@@ -85,7 +84,7 @@ def editor():
                 request.form.get("roomName"),
                 request.form.get("roomCoords"),
                 room_number=request.form.get("roomNumber"),
-                room_info=roomInfo
+                room_info=roomInfo,
             )
 
         return redirect(url_for("editor", floor=request.form.get("floor")))
@@ -129,13 +128,14 @@ def admin():
             session["admin"] = True
             return redirect(url_for("editor"))
         return render_template("admin.html", error=not error)
-        
+
+
 @app.route("/search", methods=["GET"])
 def search():
     rooms = database.get_room_by_number(request.args.get("query"))
     if not rooms:
         q = request.args.get("query")
-        return render_template("search.html", q = q)
+        return redirect(url_for("index", query=q))
     else:
         floor = rooms[1]
         room_id = rooms[0]

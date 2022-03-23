@@ -178,6 +178,13 @@ christopherL -- 2022-03-22 08:36
 Added room highlight when searched
 Handle case where no room is selected
 
-emmaB -- 2022-03-022 14:42
+emmaB -- 2022-03-22 14:42
 Added navbar access to search function
 Edited some html and css
+
+christopherL -- 2022-03-23 18:31
+Added highlight for rooms when selected
+Made navbar mobile-friendly
+Added search bar to navbar
+Removed dedicated search page
+Reformatted

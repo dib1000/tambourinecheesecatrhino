@@ -83,7 +83,8 @@ def get_room(room_id):
     db.close()
 
     return room
-    
+
+
 def get_room_by_number(room_number):
     db = get_db()
     c = db.cursor()
@@ -94,6 +95,7 @@ def get_room_by_number(room_number):
     db.close()
 
     return room
+
 
 def set_room_info(room_id, info):
     db = get_db()
