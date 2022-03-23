@@ -77,7 +77,6 @@ def editor():
                 room_info=roomInfo,
             )
         else:
-            print(type(request.form.get("roomNumber")))
             database.update_room(
                 int(request.form.get("roomId")),
                 int(request.form.get("floor")),

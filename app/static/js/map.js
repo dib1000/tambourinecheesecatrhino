@@ -179,7 +179,6 @@ c.addEventListener("click", (e) => {
 document.body.onload = () => {
   for (let i = 0; i < roomData.length; i++) {
     if (roomData[i][0] === selectedRoomId) {
-      console.log(roomData[i]);
       showSelected(roomData[i]);
       drawRoom(roomData[i], "rgba(34, 227, 0, 0.5)");
     }
