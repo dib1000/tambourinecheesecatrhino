@@ -108,10 +108,10 @@ def admin():
     """Handles admin login page"""
 
     # Creates the hash of the admin password - does not need to be run every time
-    key = "allpraisebrianmoran"
-    key_hash = werkzeug.security.generate_password_hash(key)
-    # TODO: just store the already generated key_hash
-    # key_hash = "pbkdf2:sha256:260000$Yw9XjC6Y3VrAJRv1$9f64904c5bcd7adc04912286324e01d387da41d426e8a769f08ec57941f9b1d4"
+    # key = "password here" # (this is not the actual password!)
+    # key_hash = werkzeug.security.generate_password_hash(key)
+    # just store the already generated key_hash
+    key_hash = "pbkdf2:sha256:260000$Yw9XjC6Y3VrAJRv1$9f64904c5bcd7adc04912286324e01d387da41d426e8a769f08ec57941f9b1d4"
 
     if request.method == "GET":
         if session.get("admin"):

@@ -188,3 +188,10 @@ Made navbar mobile-friendly
 Added search bar to navbar
 Removed dedicated search page
 Reformatted
+
+owenY -- 2022-03-23 19:43
+All stored room info is displayed to user
+Reformatted room info
+Collected information on all rooms
+Added all room info to database
+Corrected room layout
