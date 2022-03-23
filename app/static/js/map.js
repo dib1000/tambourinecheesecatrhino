@@ -26,6 +26,13 @@ ctx.scale(widthScale, heightScale);
 let roomCard = document.getElementById("roomCard");
 let roomName = document.getElementById("roomName");
 let roomNumber = document.getElementById("roomNumber");
+let roomType = document.getElementById("roomType");
+let roomAmenities = document.getElementById("roomAmenities");
+let chalkboard = document.getElementById("chalkboard");
+let dryerase = document.getElementById("dryerase");
+let smartboard = document.getElementById("smartboard");
+let projector = document.getElementById("projector");
+let computers = document.getElementById("computers");
 
 let currentRoom = [];
 
@@ -113,9 +120,33 @@ let didClickRoom = (x, y, room) => {
 let showSelected = (room) => {
   roomCard.style.display = "block";
   clearMap();
-
   roomName.innerHTML = room[3];
   roomNumber.innerHTML = room[2];
+  if (room[5] != "") {
+    info = JSON.parse(room[5]);
+    if (info['items'].length == 0) roomAmenities.hidden = "hidden";
+    else roomAmenities.hidden = "";
+    if (info['items'].includes('chalkboard')) chalkboard.hidden = "";
+    else chalkboard.hidden = "hidden";
+    if (info['items'].includes('dryerase')) dryerase.hidden = "";
+    else dryerase.hidden = "hidden";
+    if (info['items'].includes('smartboard')) smartboard.hidden = "";
+    else smartboard.hidden = "hidden";
+    if (info['items'].includes('projector')) projector.hidden = "";
+    else projector.hidden = "hidden";
+    if (info['items'].includes('computers')) computers.hidden = "";
+    else computers.hidden = "hidden";
+    let matchType = {"classroom": "Classroom", "lab": "Lab", "computer": "Computer Lab", "demo": "Science Demo", "art": "Art Class", "music": "Music Room", "gym": "Gym", "office": "Office", "bathroom": "Bathroom", "other": "Other"};
+    roomType.innerHTML = matchType[info['type']];
+  } else {
+    chalkboard.hidden = "hidden";
+    dryerase.hidden = "hidden";
+    smartboard.hidden = "hidden";
+    projector.hidden = "hidden";
+    computers.hidden = "hidden";
+    roomType.innerHTML = "Other";
+    roomAmenities.hidden = "hidden";
+  }
 };
 
 let checkSelection = (e) => {
