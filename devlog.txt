@@ -195,3 +195,8 @@ Reformatted room info
 Collected information on all rooms
 Added all room info to database
 Corrected room layout
+
+emmaB -- 2022-03-23 22:39
+Edited design doc
+More visual aids for editor page
+Clairified what information we gathered and how
